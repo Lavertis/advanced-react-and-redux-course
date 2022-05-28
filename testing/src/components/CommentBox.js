@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-
+import {connect, useDispatch} from "react-redux";
+import * as actions from '../actions';
 
 const CommentBox = () => {
+    const dispatch = useDispatch();
     const [comment, setComment] = useState('');
 
     const handleChange = (event) => {
@@ -10,8 +12,8 @@ const CommentBox = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        dispatch(actions.saveComment(comment));
         setComment('');
-        console.log(comment);
     }
 
     return (
@@ -34,4 +36,4 @@ CommentBox.propTypes = {};
 
 CommentBox.defaultProps = {};
 
-export default CommentBox;
+export default connect(null, actions)(CommentBox);
