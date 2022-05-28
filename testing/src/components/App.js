@@ -1,5 +1,5 @@
-import CommentBox from "../CommentBox/CommentBox";
-import CommentList from "../CommentList/CommentList";
+import CommentBox from "./CommentBox";
+import CommentList from "./CommentList";
 
 function App() {
     return (
