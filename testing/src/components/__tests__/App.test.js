@@ -1,8 +1,8 @@
 import {render, screen} from '@testing-library/react';
 import App from '../App';
 
-test('renders hi there text', () => {
+it('shows a comment box', () => {
   render(<App/>);
-  const text = screen.getByText(/Hi there!/i);
-  expect(text).toBeInTheDocument();
+  const commentBoxText = screen.getByText(/CommentBox Component/i)
+  expect(commentBoxText).toBeInTheDocument();
 });
