@@ -1,8 +1,8 @@
 {
   "usesTypeScript": false,
-  "usesCssModule": true,
+  "usesCssModule": false,
   "cssPreprocessor": "css",
-  "testLibrary": "Testing Library",
+  "testLibrary": "Enzyme",
   "component": {
     "default": {
       "path": "src/components",

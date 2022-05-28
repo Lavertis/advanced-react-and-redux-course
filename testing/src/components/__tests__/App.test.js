@@ -1,8 +1,8 @@
-import {render, screen} from '@testing-library/react';
+import {shallow} from 'enzyme';
 import App from '../App';
+import CommentBox from "../CommentBox";
 
 it('shows a comment box', () => {
-  render(<App/>);
-  const commentBoxText = screen.getByText(/CommentBox Component/i)
-  expect(commentBoxText).toBeInTheDocument();
+  const wrapped = shallow(<App/>);
+  expect(wrapped.find(CommentBox).length).toEqual(1);
 });
