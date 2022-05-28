@@ -3,7 +3,13 @@ import React from 'react';
 
 const CommentBox = () => (
     <div data-testid="CommentBox">
-        CommentBox Component
+        <form>
+            <h4>Add a Comment</h4>
+            <textarea/>
+            <div>
+                <button>Submit Comment</button>
+            </div>
+        </form>
     </div>
 );
 
