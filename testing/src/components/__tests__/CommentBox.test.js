@@ -22,5 +22,6 @@ it('has a text area that user can type in', () => {
     wrapped.find('textarea').simulate('change', {
         target: {value: text}
     });
+    wrapped.update();
     expect(wrapped.find('textarea').prop('value')).toEqual(text);
 });
