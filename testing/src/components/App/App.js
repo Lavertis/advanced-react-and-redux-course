@@ -1,7 +1,11 @@
+import CommentBox from "../CommentBox/CommentBox";
+import CommentList from "../CommentList/CommentList";
+
 function App() {
     return (
         <div className="App">
-            I'm the app component
+            <CommentBox/>
+            <CommentList/>
         </div>
     );
 }
