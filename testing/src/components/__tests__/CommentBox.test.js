@@ -1,14 +1,13 @@
-import React from 'react';
-import {render, screen} from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-import CommentBox from '../CommentBox';
+import React from "react";
+import {mount} from "enzyme";
+import CommentBox from "components/CommentBox";
 
-describe('<CommentBox />', () => {
-    test('it should mount', () => {
-        render(<CommentBox/>);
+it('has a text area and a button', () => {
+    const wrapped = mount(<CommentBox/>);
 
-        const commentBox = screen.getByTestId('CommentBox');
+    console.log(wrapped.find('textarea'));
+    console.log(wrapped.find('button'));
 
-        expect(commentBox).toBeInTheDocument();
-    });
+    expect(wrapped.find('textarea').length).toEqual(1);
+    expect(wrapped.find('button').length).toEqual(1);
 });
