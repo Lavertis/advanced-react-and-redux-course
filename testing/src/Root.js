@@ -1,6 +1,6 @@
 import {Provider} from "react-redux";
 import React from "react";
-import {applyMiddleware, compose, createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import reducers from "./reducers";
 import reduxPromise from "redux-promise";
 
@@ -8,10 +8,11 @@ const Root = ({children, initialState = {}}) => {
     const store = createStore(
         reducers,
         initialState,
-        compose(
-            applyMiddleware(reduxPromise),
-            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-        )
+        applyMiddleware(reduxPromise)
+        // compose(
+        //     applyMiddleware(reduxPromise),
+        //     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        // )
     )
 
     return (
