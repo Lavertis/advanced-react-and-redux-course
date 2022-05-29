@@ -1,14 +1,19 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import CommentList from '../CommentList';
+import Root from "../../Root";
+import {mount} from "enzyme";
 
-describe('<CommentList />', () => {
-    test('it should mount', () => {
-        render(<CommentList/>);
+let wrapped;
+let comments = ['Comment 1', 'Comment 2']
 
-        const commentList = screen.getByTestId('CommentList');
+beforeEach(() => {
+    const initialState = {
+        comments: comments
+    }
+    wrapped = mount(<Root initialState={initialState}><CommentList/></Root>)
+})
 
-        expect(commentList).toBeInTheDocument();
-    });
+it('creates one <li></li> per comment', () => {
+    expect(wrapped.find('li').length).toEqual(comments.length);
 });
