@@ -20,7 +20,7 @@ afterEach(() => {
 it('can fetch a list of comments and display them', (done) => {
     const wrapped = mount(<Root><App/></Root>)
     wrapped.find('#fetch-comments-button').simulate('click')
-    setTimeout(() => {
+    return moxios.wait(() => {
         wrapped.update();
         expect(wrapped.find('li').length).toEqual(responseData.length);
         wrapped.unmount();
