@@ -1,6 +1,6 @@
 import {FETCH_COMMENTS, SAVE_COMMENT} from "actions/types";
 
-export default function comments(state = [], action) {
+export default function commentsReducer(state = [], action) {
     switch (action.type) {
         case SAVE_COMMENT:
             return [...state, action.payload];

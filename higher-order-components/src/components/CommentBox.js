@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {connect, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import * as actions from '../actions';
 
 const CommentBox = (props) => {
@@ -37,4 +37,4 @@ CommentBox.propTypes = {};
 
 CommentBox.defaultProps = {};
 
-export default connect(null, actions)(CommentBox);
+export default CommentBox;
