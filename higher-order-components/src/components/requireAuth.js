@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
 const requireAuth = (ChildComponent) => {
-    return () => {
+    return (props) => {
         const auth = useSelector(state => state.auth);
         const navigate = useNavigate()
 
@@ -16,7 +16,7 @@ const requireAuth = (ChildComponent) => {
         }, [auth]);
 
         return (
-            <ChildComponent/>
+            <ChildComponent {...props}/>
         )
     };
 }
