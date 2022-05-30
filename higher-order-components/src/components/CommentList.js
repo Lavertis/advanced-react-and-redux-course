@@ -12,6 +12,7 @@ const CommentList = () => {
     }
     return (
         <div data-testid="CommentList">
+            <h4>Comment List</h4>
             <ul>{renderComments()}</ul>
         </div>
     );
