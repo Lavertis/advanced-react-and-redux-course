@@ -9,10 +9,6 @@ const Root = ({children, initialState = {}}) => {
         reducers,
         initialState,
         applyMiddleware(reduxPromise)
-        // compose(
-        //     applyMiddleware(reduxPromise),
-        //     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-        // )
     )
 
     return (
