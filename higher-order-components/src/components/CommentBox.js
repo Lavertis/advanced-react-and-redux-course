@@ -1,18 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import React, {useState} from 'react';
+import {useDispatch} from "react-redux";
 import * as actions from '../actions';
+import requireAuth from "./requireAuth";
 
 const CommentBox = () => {
     const dispatch = useDispatch();
-    const auth = useSelector(state => state.auth);
-    const navigate = useNavigate()
     const [comment, setComment] = useState('');
-
-    const shouldNavigateAway = () => {
-        if (!auth)
-            navigate('/')
-    }
 
     const handleChange = (event) => {
         setComment(event.target.value);
@@ -23,10 +16,6 @@ const CommentBox = () => {
         dispatch(actions.saveComment(comment));
         setComment('');
     }
-
-    useEffect(() => {
-        shouldNavigateAway();
-    }, [auth]);
 
     return (
         <div data-testid="CommentBox">
@@ -51,4 +40,4 @@ CommentBox.propTypes = {};
 
 CommentBox.defaultProps = {};
 
-export default CommentBox;
+export default requireAuth(CommentBox);
