@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {connect, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import * as actions from '../actions';
 
-const CommentBox = (props) => {
+const CommentBox = () => {
     const dispatch = useDispatch();
     const [comment, setComment] = useState('');
 
@@ -28,7 +28,9 @@ const CommentBox = (props) => {
                     <button>Submit Comment</button>
                 </div>
             </form>
-            <button id='fetch-comments-button' onClick={props.fetchComments}>Fetch Comments</button>
+            <button id='fetch-comments-button' onClick={() => dispatch(actions.fetchComments())}>
+                Fetch Comments
+            </button>
         </div>
     );
 }
@@ -37,4 +39,4 @@ CommentBox.propTypes = {};
 
 CommentBox.defaultProps = {};
 
-export default connect(null, actions)(CommentBox);
+export default CommentBox;

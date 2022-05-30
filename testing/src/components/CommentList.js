@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 
 const CommentList = () => {
@@ -21,4 +21,4 @@ CommentList.propTypes = {};
 
 CommentList.defaultProps = {};
 
-export default connect()(CommentList);
+export default CommentList;

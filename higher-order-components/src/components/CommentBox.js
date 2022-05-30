@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import * as actions from '../actions';
 
-const CommentBox = (props) => {
+const CommentBox = () => {
     const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth);
+    const navigate = useNavigate()
     const [comment, setComment] = useState('');
+
+    const shouldNavigateAway = () => {
+        if (!auth)
+            navigate('/')
+    }
 
     const handleChange = (event) => {
         setComment(event.target.value);
@@ -15,6 +23,10 @@ const CommentBox = (props) => {
         dispatch(actions.saveComment(comment));
         setComment('');
     }
+
+    useEffect(() => {
+        shouldNavigateAway();
+    }, [auth]);
 
     return (
         <div data-testid="CommentBox">
@@ -28,7 +40,9 @@ const CommentBox = (props) => {
                     <button>Submit Comment</button>
                 </div>
             </form>
-            <button id='fetch-comments-button' onClick={props.fetchComments}>Fetch Comments</button>
+            <button id='fetch-comments-button' onClick={() => dispatch(actions.fetchComments())}>
+                Fetch Comments
+            </button>
         </div>
     );
 }
