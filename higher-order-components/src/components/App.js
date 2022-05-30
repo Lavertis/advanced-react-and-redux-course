@@ -1,16 +1,26 @@
 import CommentBox from "components/CommentBox";
 import CommentList from "components/CommentList";
 import {Link, Route, Routes} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import * as actions from "actions";
 
 function App() {
+    const dispatch = useDispatch();
     const auth = useSelector(state => state.auth)
 
     const renderButton = () => {
         if (auth)
-            return <button>Sign Out</button>
+            return (
+                <button onClick={() => dispatch(actions.changeAuth(false))}>
+                    Sign Out
+                </button>
+            )
         else
-            return <button>Sign In</button>
+            return (
+                <button onClick={() => dispatch(actions.changeAuth(true))}>
+                    Sign In
+                </button>
+            )
     }
 
     const renderHeader = () => {
