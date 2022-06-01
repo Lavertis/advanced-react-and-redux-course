@@ -1,0 +1,13 @@
+{
+  "name": "authentication",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "dependencies": {
+    "express": "~4.16.1",
+    "mongoose": "^6.3.5",
+    "morgan": "~1.9.1"
+  }
+}
