@@ -2,13 +2,13 @@ import {Provider} from "react-redux";
 import React from "react";
 import {applyMiddleware, createStore} from "redux";
 import reducers from "./reducers";
-import reduxPromise from "redux-promise";
+import async from "./middlewares/async";
 
 const Root = ({children, initialState = {}}) => {
     const store = createStore(
         reducers,
         initialState,
-        applyMiddleware(reduxPromise)
+        applyMiddleware(async)
     )
 
     return (
