@@ -1,15 +1,19 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import * as actions from "../../actions";
+import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 
 const SignUp = ({handleSubmit}) => {
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const errorMessage = useSelector(state => state.auth.errorMessage);
 
     const onSubmit = (formProps) => {
-        dispatch(actions.signup(formProps));
+        dispatch(actions.signup(formProps, () => {
+            navigate('/feature')
+        }));
     }
 
     return (

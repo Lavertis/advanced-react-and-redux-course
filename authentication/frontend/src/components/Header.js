@@ -4,11 +4,11 @@ import {Link} from "react-router-dom";
 
 const Header = () => (
     <div>
-            <Link to="/">Redux Auth</Link>
-            <Link to="/signup">Signup</Link>
-            <Link to="/signin">Signin</Link>
-            <Link to="/signout">Signout</Link>
-            <Link to="/feature">Feature</Link>
+        <Link to="/">Redux Auth</Link><br/>
+        <Link to="/signup">Signup</Link><br/>
+        <Link to="/signin">Signin</Link><br/>
+        <Link to="/signout">Signout</Link><br/>
+        <Link to="/feature">Feature</Link><br/>
     </div>
 );
 
