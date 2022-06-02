@@ -11,7 +11,7 @@ const SignUp = ({handleSubmit}) => {
     const errorMessage = useSelector(state => state.auth.errorMessage);
 
     const onSubmit = (formProps) => {
-        dispatch(actions.signup(formProps, () => {
+        dispatch(actions.signUp(formProps, () => {
             navigate('/feature')
         }));
     }
