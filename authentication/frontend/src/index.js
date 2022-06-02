@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Welcome from "./components/Welcome";
+import SignUp from "./components/Auth/SignUp";
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+import reducers from "./reducers";
 
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <Provider store={createStore(reducers, {})}>
+            <BrowserRouter>
+                <App>
+                    <Routes>
+                        <Route path="/" element={<Welcome/>}/>
+                        <Route path="/signup" element={<SignUp/>}/>
+                    </Routes>
+                </App>
+            </BrowserRouter>
+        </Provider>
     </React.StrictMode>,
     document.getElementById('root')
 );
