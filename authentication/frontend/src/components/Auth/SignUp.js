@@ -1,17 +1,24 @@
 import React from 'react';
+import {Field, reduxForm} from "redux-form";
 
 
-const SignUp = () => {
+const SignUp = (props) => {
+    const {handleSubmit} = props;
+    const onSubmit = (formProps) => {
+        console.log(formProps);
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
                 <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Email" required/>
+                <Field name="email" component="input" type="text"/>
             </fieldset>
             <fieldset>
                 <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password" required/>
+                <Field name="password" component="input" type="password"/>
             </fieldset>
+            <button>Sign Up!</button>
         </form>
     );
 }
@@ -20,4 +27,4 @@ SignUp.propTypes = {};
 
 SignUp.defaultProps = {};
 
-export default SignUp;
+export default reduxForm({form: 'signup'})(SignUp);
