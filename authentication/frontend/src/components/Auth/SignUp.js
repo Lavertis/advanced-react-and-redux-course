@@ -1,11 +1,13 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
+import * as actions from "../../actions";
+import {useDispatch} from "react-redux";
 
 
-const SignUp = (props) => {
-    const {handleSubmit} = props;
+const SignUp = ({handleSubmit}) => {
+    const dispatch = useDispatch();
     const onSubmit = (formProps) => {
-        console.log(formProps);
+        dispatch(actions.signup(formProps));
     }
 
     return (
