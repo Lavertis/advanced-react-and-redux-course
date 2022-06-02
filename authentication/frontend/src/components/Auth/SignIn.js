@@ -5,13 +5,13 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 
 
-const SignUp = ({handleSubmit}) => {
+const SignIn = ({handleSubmit}) => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const errorMessage = useSelector(state => state.auth.errorMessage);
 
     const onSubmit = (formProps) => {
-        dispatch(actions.signUp(formProps, () => {
+        dispatch(actions.signIn(formProps, () => {
             navigate('/feature')
         }));
     }
@@ -29,13 +29,13 @@ const SignUp = ({handleSubmit}) => {
             <div>
                 {errorMessage}
             </div>
-            <button>Sign Up!</button>
+            <button>Sign In!</button>
         </form>
     );
 }
 
-SignUp.propTypes = {};
+SignIn.propTypes = {};
 
-SignUp.defaultProps = {};
+SignIn.defaultProps = {};
 
-export default reduxForm({form: 'signUp'})(SignUp);
+export default reduxForm({form: 'signIn'})(SignIn);

@@ -13,6 +13,18 @@ export const signUp = (formProps, callback) => async dispatch => {
         })
 };
 
+export const signIn = (formProps, callback) => async dispatch => {
+    axios.post('http://localhost:3090/signin', formProps)
+        .then(res => {
+            dispatch({type: AUTH_USER, payload: res.data.token});
+            localStorage.setItem('token', res.data.token);
+            callback();
+        })
+        .catch(() => {
+            dispatch({type: AUTH_ERROR, payload: 'Invalid login credentials'});
+        })
+};
+
 export const signOut = () => {
     localStorage.removeItem('token');
     return {

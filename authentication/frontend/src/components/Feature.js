@@ -1,10 +1,10 @@
 import React from 'react';
-import requireAuth from "./Auth/requireAuth";
+import requireAuth from "./HOC/requireAuth";
 
 
 const Feature = () => (
     <div>
-        Feature Component
+        This is the feature!
     </div>
 );
 

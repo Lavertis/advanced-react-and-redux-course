@@ -12,6 +12,7 @@ import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
 import Feature from "./components/Feature";
 import SignOut from "./components/Auth/SignOut";
+import SignIn from "./components/Auth/SignIn";
 
 const store = createStore(
     reducers,
@@ -29,6 +30,7 @@ ReactDOM.render(
                     <Routes>
                         <Route path="/" element={<Welcome/>}/>
                         <Route path="/signup" element={<SignUp/>}/>
+                        <Route path="/signin" element={<SignIn/>}/>
                         <Route path="/signout" element={<SignOut/>}/>
                         <Route path="/feature" element={<Feature/>}/>
                     </Routes>
