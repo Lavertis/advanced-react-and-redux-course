@@ -1,11 +1,13 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import * as actions from "../../actions";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 
 const SignUp = ({handleSubmit}) => {
     const dispatch = useDispatch();
+    const errorMessage = useSelector(state => state.auth.errorMessage);
+
     const onSubmit = (formProps) => {
         dispatch(actions.signup(formProps));
     }
@@ -20,6 +22,9 @@ const SignUp = ({handleSubmit}) => {
                 <label htmlFor="password">Password</label>
                 <Field name="password" component="input" type="password"/>
             </fieldset>
+            <div>
+                {errorMessage}
+            </div>
             <button>Sign Up!</button>
         </form>
     );
